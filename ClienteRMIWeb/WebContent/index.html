@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+<meta charset="UTF-8">
+<title>ADMIN PYME</title>
+<script src="/ClienteRMIWeb/js/jquery-ui/external/jquery/jquery.js"></script>
+<script src="/ClienteRMIWeb/js/jquery-ui/jquery-ui.js"></script>
+<script src="/ClienteRMIWeb/js/conector/conector.js"></script>
+<link href="/ClienteRMIWeb/js/jquery-ui/jquery-ui.css" rel="stylesheet">
+<script>
+$(document).ready(function(){
+    $("#btnRrhh").button();
+    $("#btnContabilidad").button();
+    
+});
+</script>
+</head>
+<body style="font-size: 20px;">
+  <div id="contenedor" align="center">
+     <table id="tblPanel">
+       <tr>
+         <td>
+             <button id="btnRrhh" type="button" onclick="location.href = 'rrhh.html'" >RECURSO HUMANO</button> 
+          </td>
+         <td>
+           <button id="btnContabilidad" type="button" onclick="location.href = 'contabilidad.html'">CONTABILIDAD</button> 
+         </td>
+       </tr>
+     </table>
+  </div>
+</body>
+</html>

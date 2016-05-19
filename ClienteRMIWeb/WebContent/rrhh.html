@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+<meta charset="UTF-8">
+<title>RECURSOS HUMANOS</title>
+<script src="/ClienteRMIWeb/js/jquery-ui/external/jquery/jquery.js"></script>
+<script src="/ClienteRMIWeb/js/jquery-ui/jquery-ui.js"></script>
+<script src="/ClienteRMIWeb/js/conector/conector.js"></script>
+<link href="/ClienteRMIWeb/js/jquery-ui/jquery-ui.css" rel="stylesheet">
+<script>
+$(document).ready(function(){
+	//lista de empleados
+	listaEmpleados();
+	jQuery.fn.reset = function () {
+		  $(this).each (function() { this.reset(); });
+	}
+    $("#btnIngresar").button();
+    $("#btnVolver").button();
+    $( "#tabs" ).tabs();
+    $("#btnIngresar").click(function(){
+    	 //limpiar elementos
+    	 $("#frmCrear").reset();
+         $("#dialog-form").dialog({
+        	 resizable: false,
+             draggable: false,
+             height:300,
+             width:600,
+             modal: true,
+             position: "center",
+             buttons: {
+                  Registrar: function() {
+                	  crearEmpleado();
+                	  $( this ).dialog( "destroy" );
+                   }
+             },
+             close: function(event, ui) {
+            	 $( this ).dialog( "destroy" );
+             }		
+          });
+    });
+});
+</script>
+</head>
+<body style="font-size: 11px;">
+  <div id="contenedor">
+    <form id="frmMatencion" action="">
+     <div id="tabs">
+		  <ul>
+		    <li><a href="#tabs-1">RECURSOS HUMANOS</a></li>
+		  </ul>
+		  <div id="tabs-1">
+		    <button id="btnIngresar" type="button">Ingresar</button>&nbsp;&nbsp;
+		    <button id="btnVolver" onclick="location.href = 'index.html'" type="button">Volver</button>
+		    <p>
+		    <table style="border-collapse:collapse; border-spacing:0;" id="tblLista" class="ui-grid-content ui-widget-content" width="100%">
+		      <thead>
+		         <th align="left">RUT</th>
+		         <th align="left">NOMBRES</th>
+		         <th align="left">APELLIDO PATERNO</th>
+		         <th align="left">APELLIDO MATERNO</th>
+		        <!-- <th align="left">EDITAR</th>  --> 
+		         <th align="left">ELIMINAR</th>
+		      </thead>
+		      <tbody id="tbodyid">
+		      </tbody>
+		    </table>
+		  </div>
+	</div>
+   </form>
+	<!-- FORMULARIO INGRESO -->
+	<div align="center" id="dialog-form" title="Registrar trabajador y sueldo liquido" style="display: none;">
+	   <form id="frmCrear">
+	    <table id="frmCrear" width="100%">
+	       <tr>
+	         <td>RUT</td>
+	         <td><input type="text" name="txtRut" id="txtRut" size="20" value="" class="text ui-widget-content ui-corner-all"></td>   
+	       </tr>
+	       <tr>
+	         <td>NOMBRES</td>
+	         <td><input type="text" name="txtNombres" id="txtNombres" size="60" value="" class="text ui-widget-content ui-corner-all"></td>
+	       </tr>
+	       <tr>
+	         <td>APELLIDO PATERNO</td>
+	         <td><input type="text" name="txtPaterno" id="txtPaterno" size="60" value="" class="text ui-widget-content ui-corner-all"></td>
+	       </tr>
+	       <tr>
+	       <td>APELLIDO MATERNO</td>
+	       <td><input type="text" name="txtMaterno" id="txtMaterno" size="60" value="" class="text ui-widget-content ui-corner-all"></td>
+	      </tr>
+	    </table>
+     </form>
+	</div>
+	<!--  -->
+  </div>
+</body>
+</html>
